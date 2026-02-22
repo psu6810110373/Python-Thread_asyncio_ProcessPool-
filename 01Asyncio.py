@@ -12,8 +12,8 @@ async def check_sever(host, port=443):
     except Exception:
         return f"{host} OFFLINE"
     
-async def scan_servers(host):
-    task = [check_sever(host) for host in host]
+async def scan_servers(hosts):
+    task = [check_sever(host) for host in hosts]
     return await asyncio.gather(*task)
 
 
